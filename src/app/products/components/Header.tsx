@@ -1,4 +1,4 @@
-import "./producs.module.css"
+import "../producs.module.css"
 
 export default function Header() {
     return(

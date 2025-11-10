@@ -1,8 +1,10 @@
 "use client"
 
-import Header from "./Header";
-import Cards from "./Cards";
+import Header from "./components/Header";
+import Cards from "./components/Cards";
 import { useEffect, useState } from "react";
+import Search from "./components/Search";
+import Navbar from "../navbar";
 
 type Producs = {
   id:number,
@@ -17,8 +19,6 @@ type Producs = {
 //   { id: 3 , title: "Pets" , text: "for pro users", price: 68 },
 //   { id: 4 , title: "Snowmaschine" , text: "for pro users", price: 2788 },
 // ]
-
-
 
 
 export default function ProductsPage() {
@@ -36,7 +36,9 @@ export default function ProductsPage() {
   return (
     <>
         <div className="flex flex-col justify-center w-[1200px] mx-auto">
+            <Navbar />
             <Header />
+            <Search />
             <div className="flex flex-row  justify-start py-5">
 
 
