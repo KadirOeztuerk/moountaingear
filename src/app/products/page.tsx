@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Header from "./components/Header";
 import Cards from "./components/Cards";
@@ -20,18 +20,21 @@ type Producs = {
 //   { id: 4 , title: "Snowmaschine" , text: "for pro users", price: 2788 },
 // ]
 
-
 export default function ProductsPage() {
   const [products, setProducts] = useState<Producs[]>([]);
+  const [card, setCard] = useState<Producs[]>([]);
 
   useEffect(() => {
     fetch('https://dummyjson.com/products?limit=8')
       .then(response => response.json())
       .then(data => setProducts(data.products) )
       .catch(error => console.error('Error fetching products:', error));
-  
   },[]);
 
+  const handleAddToCard = (product: Producs) => {
+    setCard([...card, product]);
+    console.log("Added:", product);
+  }
 
   return (
     <>
@@ -42,10 +45,10 @@ export default function ProductsPage() {
             <div className="flex flex-row  justify-start py-5">
 
 
-              <div className="grid grid-cols-4 gap-5">    
+              <div className="grid grid-cols-4 gap-5 items-stretch">    
                 {products.map((item) => {
-                  return <Cards key={item.id} title={item.title} text={item.description} price={item.price} />;
-                })};
+                  return <Cards key={item.id} title={item.title} text={item.description} price={item.price} onAddCard={() => handleAddToCard(item)}/>;
+                })}
               </ div >    
               
             </div>
