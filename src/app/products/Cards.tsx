@@ -8,7 +8,7 @@ type Cards = {
 
 export default function Cards({title, text, price}:Cards) {
   return (
-    <div className="card" style={{ width: "18rem" , margin: "0 10px" }}>
+    <div className="card" style={{ width: "17rem" , margin: "0 0px"}}>
       
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
